@@ -17,4 +17,12 @@ public interface NonTechnicalSkillsRepository extends MongoRepository<NonTechnic
 
     @Query("{ criteriaValue : { $gt: ?10 } }")
     List<NonTechnicalSkillsEntity> findBySkill(String criteriaValue);
+
+    List<NonTechnicalSkillsEntity> findByspokenGreaterThan(int i);
+
+
+
+    List<NonTechnicalSkillsEntity> findBycommunicationGreaterThan(int i);
+
+    List<NonTechnicalSkillsEntity> findByaptitudeGreaterThan(int i);
 }

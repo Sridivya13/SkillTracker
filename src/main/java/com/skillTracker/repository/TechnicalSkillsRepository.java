@@ -14,7 +14,26 @@ public interface TechnicalSkillsRepository extends MongoRepository<TechnicalSkil
 
     Optional<TechnicalSkillsEntity> findByUserId(Integer userId);
 
-    @Query("{ criteriaValue : { $gt: ?10 } }")
-    List<TechnicalSkillsEntity> findBySkill(String criteriaValue);
+    List<TechnicalSkillsEntity> findByhTMLCssJavascriptGreaterThan(int value);
+
+
+
+    List<TechnicalSkillsEntity> findBydockerGreaterThan(int i);
+
+    List<TechnicalSkillsEntity> findByhibernateGreaterThan(int i);
+
+    List<TechnicalSkillsEntity> findByangularGreaterThan(int i);
+
+    List<TechnicalSkillsEntity> findByreactGreaterThan(int i);
+
+    List<TechnicalSkillsEntity> findByspringGreaterThan(int i);
+
+    List<TechnicalSkillsEntity> findBygitGreaterThan(int i);
+
+    List<TechnicalSkillsEntity> findByrestfulGreaterThan(int i);
+
+    List<TechnicalSkillsEntity> findByjenkinsGreaterThan(int i);
+
+    List<TechnicalSkillsEntity> findByawsGreaterThan(int i);
 
 }

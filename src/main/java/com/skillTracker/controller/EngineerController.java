@@ -1,8 +1,7 @@
 package com.skillTracker.controller;
 
 import com.skillTracker.model.*;
-import com.skillTracker.service.AddProfile;
-import io.micrometer.core.instrument.search.Search;
+import com.skillTracker.service.EngineerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +13,9 @@ import javax.validation.Valid;
 @RequestMapping("/skill-tracker/api/v1")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @Slf4j
-public class SkillTrackerController {
+public class EngineerController {
     @Autowired
-    AddProfile addProfile;
+    EngineerService engineerService;
 
     /**
      * API to register user
@@ -26,8 +25,7 @@ public class SkillTrackerController {
      */
     @PostMapping("/engineer/add-profile")
     public ResponseEntity<UserResponse> addProfile(@RequestBody @Valid User user) {
-        log.info("Register User");
-        return addProfile.registerUser(user);
+        return engineerService.registerUser(user);
     }
 
     /**
@@ -40,21 +38,9 @@ public class SkillTrackerController {
      */
     @PutMapping("/engineer/update-profile/{userId}")
     public ResponseEntity<UpdateResponse> updateProfile(@PathVariable("UserId") Integer userId, @RequestBody Skills skills) {
-        return addProfile.updateProfile(userId, skills);
+        return engineerService.updateProfile(userId, skills);
     }
 
-    /**
-     * API to Search Profile for Admin
-     *
-
-     * @param criteria
-     * @param criteriaValue
-     * @return TweetResponse
-     */
-    @GetMapping("/skill-tracker/api/v1/admin/{criteria}/{criteriaValue}")
-    public ResponseEntity<SearchResponse> searchProfile(@PathVariable("criteria") String criteria, @PathVariable("criteriaValue") String criteriaValue) {
-        return addProfile.searchProfile(criteria, criteriaValue);
-    }
 
 
 }

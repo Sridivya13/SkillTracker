@@ -21,11 +21,10 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   data:
     mongodb:
-      uri: mongodb://127.0.0.1:27017/skill-tracket?retryWrites=true&w=majority
+      uri: mongodb://127.0.0.1:27017/skill-tracker?retryWrites=true&w=majority
   application:
     name: skillTracker
-jwt:
-  secret: sampletest
+
 management:
   endpoint:
     health:
